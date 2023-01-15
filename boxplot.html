@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+      .box {
+        fill: #fff;
+        stroke: #000;
+      }
+      .whisker {
+        stroke: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="500" height="300"></svg>
+    <script>
+      // Daten
+      var data = [4, 8, 15, 16, 23, 42];
+
+      // Ausreißer berechnen
+      var q1 = d3.quantile(data, .25);
+      var q3 = d3.quantile(data, .75);
+      var iqr = q3 - q1;
+      var lowerWhisker = d3.min(data.filter(function(d) { return d > q1 - 1.5 * iqr; }));
+      var upperWhisker = d3.max(data.filter(function(d) { return d < q3 + 1.5 * iqr; }));
+
+      // SVG-Element auswählen
+      var svg = d3.select("svg");
+
+      // Box hinzufügen
+      svg.append("rect")
+          .attr("class", "box")
+          .attr("x", 100)
+          .attr("y", 100)
+          .attr("width", 100)
+          .attr("height", q3 - q1);
+
+      // Whiskers hinzufügen
+      svg.append("line")
+          .attr("class", "whisker")
+          .attr("x1", 50)
+          .attr("y1", 50 + q1 - lowerWhisker)
+          .attr("x2", 150)
+          .attr("y2", 50 + q1 - lowerWhisker);
+      svg.append("line")
+          .attr("class", "whisker")
+          .attr("x1", 50)
+          .attr("y1", 50 + q3 - upperWhisker)
+          .attr("x2", 150)
+          .attr("y2", 50 + q3 - upperWhisker);
+    </script>
+  </body>
+</html>

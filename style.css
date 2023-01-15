@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    scroll-behavior: smooth;
+    background-color: rgb(31, 30, 30);
+    color: white;
+}
+
+.main {
+    padding: 20px;
+    margin: auto;
+    width: 90%;
+    /* text-transform: uppercase; */
+}
+
+#header {
+    text-align: center;
+
+}
+
+#header h2 {
+    padding: 8px;
+}
+
+#products {
+    margin: 10px 0;
+}
+
+input,
+.btndelete {
+    width: 100%;
+    margin: 5px;
+    border-radius: 8px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    background-color: #050505;
+    color: white;
+    transition: .3s;
+}
+
+.btndelete {
+    margin-top: 15px;
+}
+
+input:not([type="number"]):focus {
+    transform: scale(1.08);
+}
+
+input::placeholder {
+    color: #959090;
+}
+
+.wert-behalter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wert-behalter input:last-child {
+    margin-right: 0;
+}
+
+#total {
+    position: relative;
+    padding: 5px;
+    text-transform: capitalize;
+    /* line-height: 1.29; */
+    width: 80%;
+    text-align: center;
+    background-color: #930909;
+    border-radius: 8px;
+    margin-left: 4px;
+
+}
+
+#total::before {
+    content: "total:";
+
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    font-size: 14px;
+
+}
+
+input[type="button"],
+.btndelete {
+    background-color: orangered;
+    color: white;
+
+}
+
+.search-behalter {
+    display: flex;
+    justify-content: space-between;
+}
+
+#display {
+    margin-top: 50px;
+}
+
+table {
+    width: 100%;
+
+}
+
+th {
+ 
+    border-bottom: 1px solid #726d6d;
+    line-height: 3;
+
+}
+
+
+
+td {
+    text-align: center;
+    border-bottom: 1px solid #726d6d;
+
+
+}
